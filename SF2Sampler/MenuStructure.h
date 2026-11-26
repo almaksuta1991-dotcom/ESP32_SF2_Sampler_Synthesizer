@@ -6,7 +6,7 @@
 #include <FS.h>
 #include <SD_MMC.h>
 #include <LittleFS.h>
-#include "Synth.h"
+#include "synth.h"
 #include "TLVStorage.h"
 #include "fx_reverb.h"
 #include "fx_delay.h"

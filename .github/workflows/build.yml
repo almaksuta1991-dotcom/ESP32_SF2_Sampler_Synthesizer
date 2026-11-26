@@ -1,0 +1,43 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install arduino-cli
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
+
+      - name: Install ESP32 core 3.1.1
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install esp32:esp32@3.1.1
+
+      - name: Clone libraries via git
+        run: |
+          mkdir -p libs
+          git clone --depth 1 https://github.com/olikraus/u8g2.git libs/u8g2
+          git clone --depth 1 https://github.com/FortySevenEffects/arduino_midi_library.git libs/midi
+
+      - name: Compile sketch
+        run: |
+          arduino-cli compile \
+            --fqbn "esp32:esp32:esp32s3:PSRAM=opi,USBMode=default,FlashSize=16M,PartitionScheme=custom" \
+            --libraries ./libs \
+            --build-path ./build \
+            ./SF2Sampler
+
+      - name: Upload firmware artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SF2Sampler-firmware
+          path: |
+            build/*.bin

@@ -35,9 +35,18 @@ jobs:
             --build-path ./build \
             ./SF2Sampler
 
+      - name: Install mklittlefs
+        run: |
+          curl -L https://github.com/earlephilhower/mklittlefs/releases/download/4.0.0/mklittlefs-linux-x86_64.tar.gz | tar xz -C /usr/local/bin
+
+      - name: Build LittleFS image
+        run: |
+          /usr/local/bin/mklittlefs -c SF2Sampler/data -b 4096 -p 256 -s 0xF00000 littlefs.bin
+
       - name: Upload firmware artifact
         uses: actions/upload-artifact@v4
         with:
           name: SF2Sampler-firmware
           path: |
             build/*.bin
+            littlefs.bin

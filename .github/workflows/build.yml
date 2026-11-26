@@ -24,7 +24,7 @@ jobs:
       - name: Clone libraries via git
         run: |
           mkdir -p libs
-          git clone --depth 1 https://github.com/olikraus/u8g2.git libs/u8g2
+          git clone --depth 1 https://github.com/olikraus/U8g2_Arduino.git libs/u8g2
           git clone --depth 1 https://github.com/FortySevenEffects/arduino_midi_library.git libs/midi
 
       - name: Compile sketch

@@ -37,7 +37,7 @@ jobs:
 
       - name: Install mklittlefs
         run: |
-          curl -L https://github.com/earlephilhower/mklittlefs/releases/download/4.0.0/mklittlefs-linux-x86_64.tar.gz | tar xz -C /usr/local/bin
+          curl -L https://github.com/earlephilhower/mklittlefs/releases/download/4.1.0/x86_64-linux-gnu-mklittlefs-42acb97.tar.gz | tar xz -C /usr/local/bin
 
       - name: Build LittleFS image
         run: |

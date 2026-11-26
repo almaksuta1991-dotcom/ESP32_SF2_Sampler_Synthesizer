@@ -37,7 +37,7 @@ jobs:
 
       - name: Build LittleFS image with ESP32 mklittlefs
         run: |
-          MKLITTLEFS=$(find /root/.arduino15/packages/esp32/tools/mklittlefs -name mklittlefs -type f | head -1)
+          MKLITTLEFS=$(find $HOME/.arduino15/packages/esp32/tools/mklittlefs -name mklittlefs -type f | head -1)
           echo "Using: $MKLITTLEFS"
           $MKLITTLEFS -c SF2Sampler/data -b 4096 -p 256 -s 0xF00000 littlefs.bin
           ls -lh littlefs.bin

@@ -39,7 +39,7 @@ jobs:
         run: |
           mkdir -p /tmp/mklittlefs
           curl -L https://github.com/earlephilhower/mklittlefs/releases/download/4.1.0/x86_64-linux-gnu-mklittlefs-42acb97.tar.gz | tar xz -C /tmp/mklittlefs
-          cp /tmp/mklittlefs/mklittlefs /usr/local/bin/
+          find /tmp/mklittlefs -name mklittlefs -type f -exec cp {} /usr/local/bin/ \;
           chmod +x /usr/local/bin/mklittlefs
           mklittlefs --version
 

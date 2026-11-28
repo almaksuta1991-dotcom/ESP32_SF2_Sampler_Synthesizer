@@ -101,7 +101,7 @@ private:
     fs::FS* getFileSystem() ;
 
 //    FileSystemType fsType = FileSystemType::LITTLEFS;  // default
-    FileSystemType fsType = FileSystemType::SD;  // default
+    FileSystemType fsType = FileSystemType::LITTLEFS;  // default
     std::vector<String> sf2Files;
     SampleLoadMode sampleLoadMode = SampleLoadMode::PRESET_ONLY;
     bool sf2FullyResident = false;

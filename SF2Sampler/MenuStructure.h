@@ -119,7 +119,7 @@ static MenuItem createProgramMenu(Synth& synth, uint8_t channel) {
                             chRef.wantProgram = e.program;
                             chRef.wantBankMSB = (e.bank >> 7) & 0x7F;
                             chRef.wantBankLSB = e.bank & 0x7F;
-                            synth.applyBankProgram(ch);
+                            synth.programChange(ch, e.program);
                         }));
                     } else {
                         String baseLabel = String(program) + ": " + variants[0].name;
@@ -136,7 +136,7 @@ static MenuItem createProgramMenu(Synth& synth, uint8_t channel) {
                                     chRef.wantProgram = e.program;
                                     chRef.wantBankMSB = (e.bank >> 7) & 0x7F;
                                     chRef.wantBankLSB = e.bank & 0x7F;
-                                    synth.applyBankProgram(ch);
+                                    synth.programChange(ch, e.program);
                                 }));
                             }
                             return subitems;

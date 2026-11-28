@@ -33,7 +33,7 @@ jobs:
             --fqbn "esp32:esp32:esp32s3:PSRAM=opi,USBMode=default,FlashSize=16M,PartitionScheme=custom" \
             --libraries ./libs \
             --build-path ./build \
-            ./SF2Sampler --build-property "compiler.cpp.extra_flags=-DCORE_DEBUG_LEVEL=3"
+            ./SF2Sampler --build-property "build.code_debug=3"
 
       - name: Build LittleFS image with ESP32 mklittlefs
         run: |

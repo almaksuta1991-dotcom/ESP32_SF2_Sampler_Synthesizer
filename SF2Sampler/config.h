@@ -38,7 +38,7 @@
 // ===================== MIDI =======================================================================================
 #define   USE_USB_MIDI_DEVICE   1     // definition: the synth appears as a USB MIDI Device "S3 SF2 Synth"
 #define   USE_MIDI_STANDARD     2     // definition: the synth receives MIDI messages via serial 31250 bps
-#define   MIDI_IN_DEV           USE_USB_MIDI_DEVICE     // select the appropriate (one of the above) 
+#define   MIDI_IN_DEV           USE_MIDI_STANDARD     // select the appropriate (one of the above) 
 #define   NUM_MIDI_CHANNELS		16
 
 // ===================== SYNTHESIZER ================================================================================
@@ -68,7 +68,7 @@ static const char* SF2_PATH = "/";
   #define MAX_VOICES 19 // for now 20 is max for per-channel filtering + chorus + reverb
 
   // ===================== MIDI PINS ==================================================================================
-  #define MIDI_IN         4      // if USE_MIDI_STANDARD is selected as MIDI_IN, this pin receives MIDI messages
+  #define MIDI_IN         17      // if USE_MIDI_STANDARD is selected as MIDI_IN, this pin receives MIDI messages
 
   // ===================== I2S PINS ===================================================================================
   #define I2S_BCLK_PIN    5       // I2S BIT CLOCK pin (BCL BCK CLK)

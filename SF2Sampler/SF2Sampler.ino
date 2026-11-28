@@ -317,6 +317,9 @@ if (!g_sd_dma_buf) {
     USB.usbAttributes(0x80);
 #endif
 
+#if MIDI_IN_DEV == USE_MIDI_STANDARD
+    Serial1.begin(31250, SERIAL_8N1, MIDI_IN, -1);
+#endif
     MIDI.begin(MIDI_CHANNEL_OMNI);
     MIDI.setHandleNoteOn(handleNoteOn);
     MIDI.setHandleNoteOff(handleNoteOff);
